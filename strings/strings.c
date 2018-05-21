@@ -8,6 +8,18 @@
 int string_length(char s[])
 {
 
+    // make a var to hold the counter 
+    // while counter at array is not the terminator char increase count 
+
+    int count = 0;
+
+    while(s[count] != '\0') {
+        ++count;
+    }
+    // printf("%d\n", count );
+    return count;
+
+
 }
 
 /*
@@ -20,7 +32,21 @@ int string_length(char s[])
 */
 char *reverse_string(char rv[], char s[])
 {
-
+    // printf("%s\n", s); // %s prints str
+    
+    // need to call function from above 
+    int count = 0;
+    int length = string_length(s);
+    printf("%d\n", length); // give us length of str
+    
+    for (int i = length - 1; i >= 0; i--) {
+        // printf("%c\n", s[i]); // print str in reverse 
+        rv[count] = s[i];
+        ++count;
+    }
+    rv[count] = '\0'; // this puts the termination key on the front of the str after the the count has been incremented 
+    // print( "%s\n", rv );
+    return rv;
 }
 
 #ifndef TESTING
