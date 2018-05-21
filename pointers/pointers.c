@@ -6,9 +6,19 @@
     address it's referring to) or the value at the address it's 
     pointing at.
 */
-void swap(int* a, int* b)
+void swap(int *a, int *b)
 {
+    // printf("%d\n", *a);
+    // printf("%d\n", *b);
 
+    int aa = *a;
+    int bb = *b;
+
+    *a = bb;
+    *b = aa;
+
+    // printf("%d\n", *a);
+    // printf("%d\n", *b);
 }
 
 /*
@@ -18,7 +28,13 @@ void swap(int* a, int* b)
 */
 int string_length(char *s)
 {
+    int count = 0;
+    while (s[count] != '\0')
+    {
+        ++count;
+    }
 
+    return count;
 }
 
 /*
@@ -29,7 +45,17 @@ int string_length(char *s)
 */
 void string_copy(char *x, char *y)
 {
+    // reassign *x to the *y
+    *x = *y;
 
+    int count = 0;
+
+    while (y[count] != '\0')
+    {
+        ++count;
+        x[count] = y[count];
+    }
+    x[count] = '\0';
 }
 
 /* 
@@ -46,7 +72,31 @@ void string_copy(char *x, char *y)
 */
 int string_compare(char *m, char *n)
 {
+    // printf("%c\n", *m); // h
+    // printf("%c\n", *n + 1); // h
 
+    int mlength = string_length(m);
+    int nlength = string_length(n);
+    // printf("%d\n", mlength); // 12
+
+    int count = 0;
+
+    for (int i = 0; i < mlength; i++)
+    {
+        for (int j = 0; j < nlength; j++)
+        {
+            if (m[i] > n[j])
+            {
+                count--;
+            }
+            else if (m[i] < n[j])
+            {
+                count++;
+            }
+        }
+    }
+    // printf("%d\n", count);
+    return count;
 }
 
 #ifndef TESTING
