@@ -11,11 +11,11 @@ void swap(int *a, int *b)
     // printf("%d\n", *a);
     // printf("%d\n", *b);
 
-    int aa = *a;
-    int bb = *b;
+    int temp_a = *a;
+    int temp_b = *b;
 
-    *a = bb;
-    *b = aa;
+    *a = temp_b;
+    *b = temp_a;
 
     // printf("%d\n", *a);
     // printf("%d\n", *b);
